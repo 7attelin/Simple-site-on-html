@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Увлечения - Мой личный сайт</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr); /*Это означает 4 колонки для прямоугольной сетки*/
+      grid-template-rows: repeat(4, auto); /*4 ряда, а высота авто выставлена*/
+      /*Вы сами можете поиграться с высотой фотографий. И их размерами*/
+      gap: 15px; /*Отступы между фото*/
+      padding: 20px;
+      max-width: 1200px; /*Ограничение ширины*/
+      margin: 0 auto;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Заполняет плитку, сохраняя пропорции */
+      border-radius: 10px;
+      cursor: pointer; /* Указатель при наведении */
+      transition: transform 0.3s ease; /* Плавное увеличение */
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05); /*Увеличение при наведении*/
+    }
+    /* Разные размеры плиток для 16 фотографий */
+    .gallery img:nth-child(1) { grid-area: 1 / 1 / span 2 / span 2; } /* Большая: 2x2, верхний левый */
+    .gallery img:nth-child(2) { grid-area: 1 / 3 / span 1 / span 1; } /* Маленькая: 1x1 */
+    .gallery img:nth-child(3) { grid-area: 1 / 4 / span 1 / span 1; } /* Маленькая: 1x1 */
+    .gallery img:nth-child(4) { grid-area: 2 / 3 / span 1 / span 2; } /* Широкая: 1x2 */
+    .gallery img:nth-child(5) { grid-area: 3 / 1 / span 1 / span 1; } /* Маленькая: 1x1 */
+    .gallery img:nth-child(6) { grid-area: 3 / 2 / span 2 / span 2; } /* Большая: 2x2 */
+    .gallery img:nth-child(7) { grid-area: 3 / 4 / span 1 / span 1; } /* Маленькая: 1x1 */
+    .gallery img:nth-child(8) { grid-area: 4 / 1 / span 1 / span 1; } /* Маленькая: 1x1 */
+    .gallery img:nth-child(9) { grid-area: 4 / 4 / span 1 / span 1; } /* Маленькая: 1x1 */
+    .gallery img:nth-child(10) { grid-area: 5 / 1 / span 1 / span 2; } /* Широкая: 1x2 */
+    .gallery img:nth-child(11) { grid-area: 5 / 3 / span 2 / span 1; } /* Высокая: 2x1 */
+    .gallery img:nth-child(12) { grid-area: 5 / 4 / span 1 / span 1; } /* Маленькая: 1x1 */
+    .gallery img:nth-child(13) { grid-area: 6 / 1 / span 1 / span 1; } /* Маленькая: 1x1 */
+    .gallery img:nth-child(14) { grid-area: 6 / 2 / span 1 / span 1; } /* Маленькая: 1x1 */
+    .gallery img:nth-child(15) { grid-area: 6 / 3 / span 1 / span 1; } /* Маленькая: 1x1 */
+    .gallery img:nth-child(16) { grid-area: 6 / 4 / span 2 / span 2; } /* Большая: 2x2, нижний правый */
+
+    /* Стили для модального окна */
+    .modal {
+      display: none; /* Скрыто по умолчанию */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8); /* Полупрозрачный фон */
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .modal img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 20px;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      color: white;
+      font-size: 30px;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+
+    /* Стили для Instagram ссылки */
+    .instagram-link {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .instagram-link a {
+      display: inline-block;
+      color: #fff;
+      background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: transform 0.3s ease;
+    }
+
+    .instagram-link a:hover {
+      transform: scale(1.1);
+    }
+
+    /* Адаптивность для маленьких экранов */
+    @media (max-width: 768px) {
+      .gallery {
+        grid-template-columns: repeat(2, 1fr); /* 2 колонки на малых экранах */
+        grid-template-rows: auto; /* Ряды адаптируются */
+      }
+      .gallery img {
+        grid-area: auto; /* Сбрасываем кастомные размеры для упрощения */
+      }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <nav>
+    <ul>
+      <li><a href="index.html">Главная</a></li>
+      <li><a href="about.html">Обо мне</a></li>
+      <li><a href="hobbies.html">Увлечения</a></li>
+      <li><a href="contact.html">Контакты</a></li>
+    </ul>
+  </nav>
+  <h1>Мои увлечения</h1>
+</header>
+
+<main>
+  <div class="gallery">
+    <img src="images/gallery/gallery1.jpg" alt="Фото 1" class="scroll-animation">
+    <img src="images/gallery/gallery2.jpg" alt="Фото 2" class="scroll-animation">
+    <img src="images/gallery/gallery3.jpg" alt="Фото 3" class="scroll-animation">
+    <img src="images/gallery/gallery4.jpg" alt="Фото 4" class="scroll-animation">
+    <img src="images/gallery/gallery5.jpg" alt="Фото 5" class="scroll-animation">
+    <img src="images/gallery/gallery6.JPG" alt="Фото 6" class="scroll-animation">
+    <img src="images/gallery/gallery7.JPG" alt="Фото 7" class="scroll-animation">
+    <img src="images/gallery/gallery8.jpg" alt="Фото 8" class="scroll-animation">
+    <img src="images/gallery/gallery9.jpg" alt="Фото 9" class="scroll-animation">
+    <img src="images/gallery/gallery10.jpg" alt="Фото 10" class="scroll-animation">
+    <img src="images/gallery/gallery11.jpg" alt="Фото 11" class="scroll-animation">
+    <img src="images/gallery/gallery12.jpg" alt="Фото 12" class="scroll-animation">
+    <img src="images/gallery/gallery13.jpg" alt="Фото 13" class="scroll-animation">
+    <img src="images/gallery/gallery14.jpg" alt="Фото 14" class="scroll-animation">
+    <img src="images/gallery/gallery15.jpg" alt="Фото 15" class="scroll-animation">
+    <img src="images/gallery/gallery16.jpg" alt="Фото 16" class="scroll-animation">
+  </div>
+</main>
+<div class="instagram-link"> <!--Добавление ссылки и ниже цветоукрашение кнопки-->
+  <a href="https://www.instagram.com/7attelin" target="_blank" rel="noopener noreferrer">Мой Instagram</a>
+</div>
+<div class="modal" id="photoModal">
+  <button class="modal-close" onclick="closeModal()">×</button>
+  <img src="" alt="Полное фото" id="modalImage">
+</div>
+<footer>
+  <p>© 2025 Михаил. Все права защищены.</p>
+  <img src="images/moon.png" alt="Переключить тему" onclick="toggleTheme()" class="theme-toggle">
+</footer>
+<script>
+  // Функция для проверки видимости элемента
+  function isElementInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+    return (
+            rect.top <= windowHeight - 100 && // Срабатывает, когда элемент почти виден
+            rect.bottom >= 0
+    );
+  }
+
+  // Установка куки при переключении темы
+  function setThemeCookie(theme) {
+    document.cookie = `theme=${theme}; path=/`;
+  }
+
+  // Проверка и применение темы при загрузке
+  document.addEventListener('DOMContentLoaded', () => {
+    const cookies = document.cookie.split('; ').find(row => row.startsWith('theme='));
+    if (cookies && cookies.split('=')[1] === 'dark') {
+      document.body.classList.add('dark-theme');
+    }
+
+    // Добавляем обработчик клика для фотографий галереи
+    const galleryImages = document.querySelectorAll('.gallery img');
+    const modal = document.getElementById('photoModal');
+    const modalImage = document.getElementById('modalImage');
+
+    galleryImages.forEach(image => {
+      image.addEventListener('click', () => {
+        modal.style.display = 'flex';
+        modalImage.src = image.src;
+        modalImage.alt = image.alt;
+      });
+    });
+
+    // Закрытие модального окна при клике вне изображения
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+  });
+
+  // Переключение темы
+  function toggleTheme() {
+    document.body.classList.toggle('dark-theme');
+    if (document.body.classList.contains('dark-theme')) {
+      setThemeCookie('dark');
+    } else {
+      setThemeCookie('light');
+    }
+  }
+
+  // Функция для закрытия модального окна
+  function closeModal() {
+    document.getElementById('photoModal').style.display = 'none';
+  }
+
+  // Функция для обработки анимации при скролле
+  function handleScrollAnimation() {
+    const textElements = document.querySelectorAll('.scroll-animation, .scroll-animation-reverse');
+    const photoElements = document.querySelectorAll('.photo-fade');
+
+    // Обработка анимации текста
+    textElements.forEach(element => {
+      if (isElementInViewport(element)) {
+        if (element.classList.contains('scroll-animation')) {
+          element.classList.add('animated');
+        } else if (element.classList.contains('scroll-animation-reverse')) {
+          element.classList.add('animated-reverse');
+        }
+      } else {
+        if (element.classList.contains('scroll-animation')) {
+          element.classList.remove('animated');
+        } else if (element.classList.contains('scroll-animation-reverse')) {
+          element.classList.remove('animated-reverse');
+        }
+      }
+    });
+
+    // Обработка анимации фотографий
+    photoElements.forEach(element => {
+      const rect = element.getBoundingClientRect();
+      const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+      const progress = (windowHeight - rect.top) / windowHeight;
+
+      if (isElementInViewport(element)) {
+        element.classList.add('fade-in-out');
+        if (progress > 0.5) {
+          element.classList.add('fade-out');
+        } else {
+          element.classList.remove('fade-out');
+        }
+      } else {
+        element.classList.remove('fade-in-out');
+        element.classList.remove('fade-out');
+      }
+    });
+  }
+
+  // Добавляем обработчик события скролла
+  window.addEventListener('scroll', handleScrollAnimation);
+
+  // Вызываем функцию при загрузке страницы, чтобы проверить начальное состояние
+  window.addEventListener('load', handleScrollAnimation);
+</script>
+</body>
+</html>

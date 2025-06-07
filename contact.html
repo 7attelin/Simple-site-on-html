@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Контакты - Мой личный сайт</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .form-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .form-table td {
+      padding: 10px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 5px;
+      font-family: "JetBrains Mono ExtraBold", monospace;
+      font-size: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #0066cc;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-family: "JetBrains Mono ExtraBold",monospace;
+      font-size: 18px;
+    }
+
+    button:hover {
+      background-color: #003366;
+    }
+
+    .contact-info{
+      flex: 1;
+      padding: 20px;
+    }
+    .contact-info h2 {
+      margin-top: 0;
+      font-size: 30px;
+    }
+    .contact-info p {
+      margin: 15px 0;
+      font-size: 20px;
+    }
+    .contact-info a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+    .dark-theme .contact-info a {
+      color: #ffff00;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <nav>
+    <ul>
+      <li><a href="index.html">Главная</a></li>
+      <li><a href="about.html">Обо мне</a></li>
+      <li><a href="hobbies.html">Увлечения</a></li>
+      <li><a href="contact.html">Контакты</a></li>
+    </ul>
+  </nav>
+  <h1>Связаться со мной</h1>
+</header>
+
+<main>
+<div class="text-with-image">
+  <div class="text-content">
+    <table class="form-table">
+      <tr>
+        <td><label for="name">Имя:</label></td>
+        <td><input type="text" id="name" name="name" required></td>
+      </tr>
+      <tr>
+        <td><label for="email">Email:</label></td>
+        <td><input type="email" id="email" name="email" required></td>
+      </tr>
+      <tr>
+        <td><label for="message">Сообщение</label></td>
+        <td><textarea id="message" name="message" rows="5" required></textarea></td>
+      </tr>
+      <tr>
+        <td colspan="2" style="text-align: center;">
+          <button type="submit">Отправить</button>
+          <button type="reset">Сброс</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div  class="contact-info">
+    <h2>Контактная информация</h2>
+    <p><strong>Instagram:</strong> <a href="https://instagram.com/yourusername" target="_blank">@yourusername</a></p>
+    <p><strong>Email:</strong> <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+    <p><strong>Телефон:</strong> <a href="tel:+1234567890">+1 (234) 567-890</a></p>
+  </div>
+</div>
+</main>
+<script>
+  // Установка куки при переключении темы
+  function setThemeCookie(theme) {
+    document.cookie = `theme=${theme}; path=/`;
+  }
+
+  // Проверка и применение темы при загрузке
+  document.addEventListener('DOMContentLoaded', () => {
+    const cookies = document.cookie.split('; ').find(row => row.startsWith('theme='));
+    if (cookies && cookies.split('=')[1] === 'dark') {
+      document.body.classList.add('dark-theme');
+    }
+  });
+
+  // Переключение темы
+  function toggleTheme() {
+    document.body.classList.toggle('dark-theme');
+    if (document.body.classList.contains('dark-theme')) {
+      setThemeCookie('dark');
+    } else {
+      setThemeCookie('light');
+    }
+  }
+</script>
+<footer>
+  <p>© 2025 Михаил. Все права защищены.</p>
+  <img src="images/moon.png" alt="Переключить тему" onclick="toggleTheme()" class="theme-toggle">
+</footer>
+</body>
+</html>

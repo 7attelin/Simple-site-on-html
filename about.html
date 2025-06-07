@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Обо мне - Мой личный сайт</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style class="scroll-animation">
+    .photo-triangle {
+      display: flex;
+      justify-content: center;
+      position: relative;
+      margin: 60px auto 300px auto;
+      height: 400px;
+    }
+
+    .photo-container {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%; /* Для круглых фото */
+      /* border-radius: 40% 60% 40% 60%; Для овальных фото */
+      overflow: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .photo-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Позиционирование фото в форме треугольника (повернутого на 90°) */
+    .photo-container:nth-child(1) {
+      top: 80%;
+      right: 10%;
+      transform: translate(-10%, -10%);
+    }
+
+    .photo-container:nth-child(2) {
+      width: 450px;
+      height: 450px;
+      top: 50%;
+      left: 10%;
+      transform: translate(-10%, -10%);
+    }
+
+    .photo-container:nth-child(3) {
+      width: 350px;
+      height: 350px;
+      top: 0%;
+      right: auto;
+      transform: translate(-10%, -10%);
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1>М И Х А И Л</h1>
+  <p>студент / фотограф / меломан / саунд-дизайнер / рекламный дизайнер </p>
+  <nav>
+    <ul>
+      <li><a href="index.html">Главная</a></li>
+      <li><a href="about.html">Обо мне</a></li>
+      <li><a href="hobbies.html">Увлечения</a></li>
+      <li><a href="contact.html">Контакты</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="photo-triangle">
+  <div class="photo-container scroll-animation">
+    <img src="images/about1.jpg" alt="Фото 1">
+  </div>
+  <div class="photo-container scroll-animation">
+    <img src="images/about2.jpg" alt="Фото 2">
+  </div>
+  <div class="photo-container scroll-animation">
+    <img src="images/about3.jpg" alt="Фото 3">
+  </div>
+</div>
+
+<main>
+  <div class="container">
+    <div class="column left">
+      <div>
+        <h2 class="scroll-animation">Обо мне</h2>
+        <p class="scroll-animation">Меня зовут vibe-кодер, фотограф, музыкант, мечтатель и просто - Михаил. Я студент/энтузиаст, увлечённый обучением и творчеством. Я вырос в городе Хабаровске, и моя жизнь полна любопытства и стремления к новым вызовам.
+          Так же ярый фанат музыки. Буквально разной. Занимаюсь обработкой фотографий и так же сам отчасти являюсь фотографом + дизайнером рекламных баннеров. В скором времени хочу заняться видеомонтажерством.
+          Делаю подборку музыкальных треков, и даже иногда сам участвую в создании звуков или композиций для эмбиента игр.
+        </p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<main>
+  <div class="text-with-image">
+    <div class="scroll-animation text-content">
+
+      <h3 class="scroll-animation">
+        Музыка
+      </h3>
+      <p class="scroll-animation">
+        Изначально так вышло, что я родился в семье, в которой слушали только классический рок. Собственно я и считал это основой всей музыки.
+      </p>
+      <p class="scroll-animation">
+        Но так было не всегда, пока не достиг 10 лет. Дальше уже начинал познавать основы EDM мелодий, а вскоре и перешел полностью, на то время, современную электронную музыку. Основоположником стал Skrillex, Alan Walker и Marshmello.
+        Еще через 5 лет, я начинал слушать рэп зарубежный. Но не нынешний, а "классику". Вообще я его затронул еще изначально в свои 12 лет, но не мог его понять и осознать, так как толком не знал английский язык. Уже чуть позднее когда выучил английский язык до уровня на котором уже мог переводить предложения спокойно. Начал слушать рэп.
+        Базой рэпа стали: Eminem, 50 cent, Snoop Dogg, Dr. Dre, The Notorious B.I.G
+      </p>
+    </div>
+    <div class="column">
+      <img src="images/about4.jpg" alt="4 фотография" class="photo scroll-animation">
+    </div>
+  </div>
+</main>
+
+<main>
+  <div class="text-with-image">
+    <div class="column">
+      <img src="images/about_ph1.png" alt="Первая фотография" class="photo scroll-animation">
+      <img src="images/about_ph2.png" alt="Вторая фотография" class="photo scroll-animation">
+    </div>
+    <div class="text-content scroll-animation">
+      <h3 class="scroll-animation">Фотографии и их обработка</h3>
+      <p class="scroll-animation">
+        В 16 лет начал покорять настройки камеры на своем телефоне. На тот момент у меня был IPhone SE 1-ого поколения. 2016 год, SE-шка на тот момент стала прорывным аппаратом того времени. Мощные характеристики, камера способная снимать в 4к видео + фото, так же и замедленную съемку в 120 кадров в full hd.
+        К тому моменту, у меня что-то щелкнуло и я начал видеть в каждом моменте, в каждом кадре свой шарм, особенность, вид и красоту. Меня это очень сильно начало впечатлять. И поэтому я стал читать некоторые статьи и набираться опыту, чтобы стать лучше и подбирать лучшие кадры и виды.
+        Не обошлось и к изучению настроек камеры, как с ними поиграться так, чтобы ночная съемка выглядела шикарно, или же в стиле 90-х. Чуть позже спустя 5 лет, я сменил свой телефон на китайца и выжимал из его камеры всё, что можно было. А потом купил себе уже на тот момент 6-ти летний Iphone X. Тоже прорывная модель в плане технологий и
+        в плане камеры. Кадры за кадром и вот уже начали действительно получаться качественные фотографии. Естественно тут надо не забыть затронуть тему с photoshop'ом. Потому что он тоже занимает важную часть в этом абзаце.
+        Сначала я просто им баловался. Пытался что-то делать, нарисовать или же просто добавить чуть-чуть резкости, но безрезультатно. С 16-ти лет я им стал увлекаться плотно. И вот на протяжении 3-х лет я его довольно хорошо освоил для обработки фотографий и добавлении к нему элементов. В каком-то даже плане создания постеров, что мне в будущем поможет дальше развиваться.
+        Возможно буду заниматься фотошопом и программированием одновременно. Как говорится одно другому не мешает ;)
+      </p>
+    </div>
+  </div>
+</main>
+
+<main>
+  <div class="container">
+    <div class="column right">
+      <h2 class="scroll-animation">Навыки</h2>
+      <ul class="skills scroll-animation">
+        <li>Веб-разработка</li>
+        <li>Музыкальное творчество</li>
+        <li>Решение задач</li>
+      </ul>
+    </div>
+  </div>
+</main>
+<footer>
+  <p>© 2025 Михаил. Все права защищены.</p>
+  <img src="images/moon.png" alt="Переключить тему" onclick="toggleTheme()" class="theme-toggle">
+</footer>
+
+<script>
+  // Установка куки при переключении темы
+  function setThemeCookie(theme) {
+    document.cookie = `theme=${theme}; path=/`;
+  }
+  // Проверка и применение темы при загрузке
+  document.addEventListener('DOMContentLoaded', () =>{
+    const cookies = document.cookie.split('; ').find(row => row.startsWith('theme='));
+    if (cookies && cookies.split('=')[1] === 'dark'){
+      document.body.classList.add('dark-theme');
+    }
+  });
+
+  // Переключение темы
+  function toggleTheme() {
+    document.body.classList.toggle('dark-theme');
+    if (document.body.classList.contains('dark-theme')) {
+      setThemeCookie('dark');
+    } else {
+      setThemeCookie('light');
+    }
+  }
+
+  // Проверка и применение темы при загрузке
+  document.addEventListener('DOMContentLoaded', () => {
+    const cookies = document.cookie.split('; ').find(row => row.startsWith('theme='));
+    if (cookies && cookies.split('=')[1] === 'dark') {
+      document.body.classList.add('dark-theme');
+    }
+  });
+
+  //========================================================
+
+  // Функция для проверки видимости элемента
+  function isElementInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+    return (
+            rect.top <= windowHeight - 100 && // Срабатывает, когда элемент почти виден
+            rect.bottom >= 0
+    );
+  }
+
+  // Функция для обработки анимации при скролле
+  function handleScrollAnimation() {
+    const elements = document.querySelectorAll('.scroll-animation');
+
+    elements.forEach(element => {
+      if (isElementInViewport(element)) {
+        element.classList.add('animated');
+      } else {
+        element.classList.remove('animated');
+      }
+    });
+  }
+
+  // Добавляем обработчик события скролла
+  window.addEventListener('scroll', handleScrollAnimation);
+
+  // Вызываем функцию при загрузке страницы, чтобы проверить начальное состояние
+  window.addEventListener('load', handleScrollAnimation);
+</script>
+</body>
+</html>
