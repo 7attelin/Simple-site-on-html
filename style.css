@@ -1,0 +1,225 @@
+body {
+    background-color: #ffff00; /* Желтый фон по умолчанию */
+    font-family: "Century", monospace;
+    font-size: 20px;
+    margin: 0;
+    padding: 20px;
+    color: #000;
+    transition: all 0.3s ease;
+}
+
+header {
+    font-family: "Ink Free", monospace;
+    text-align: center;
+    padding: 20px;
+}
+
+header h1 {
+    font-family: "Kashima RUS by Cop", monospace;
+    font-size: 100px;
+    letter-spacing: 15px;
+    margin: 0;
+    color: #000;
+}
+
+header p {
+    font-family: "JetBrains Mono ExtraBold", monospace;
+    font-size: 35px;
+    margin: 5px 0;
+    color: #333;
+}
+
+header h5 {
+    margin: 50px auto;
+    font-size: 80px;
+}
+
+p {
+    font-size: 25px;
+    font-family: "JetBrains Mono ExtraBold", monospace;
+
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+nav ul li {
+    font-family: "JetBrains Mono ExtraBold", monospace;
+    display: inline;
+    margin-right: 15px;
+    font-size: 50px;
+}
+
+nav ul li a {
+    font-family: "JetBrains Mono ExtraBold", monospace;
+    text-decoration: none;
+    font-size: 30px;
+    color: #000;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #333;
+}
+
+main {
+    margin: 50px auto 50px; /*Расположение блока*/
+    max-width: 1400px; /*Ширина блока*/
+    transition: all 0.4ms ease-in; /*Этот параметр будет связан с изменением темы*/
+    padding: 50px; /*Отступы от блока*/
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px; /*Скругление углов нашего блока*/
+}
+
+/*Еще изменения для заголовков и концовки*/
+h4 {
+    font-family: "JetBrains Mono ExtraBold", monospace;
+    text-align: center;
+    font-size: 70px;
+}
+
+h2 {
+    font-family: "JetBrains Mono ExtraBold", monospace;
+    margin-bottom: 50px;
+    text-align: center;
+    font-size: 40px;
+    color: #000;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    position: relative;
+}
+
+
+
+/*Светлая тема*/
+/*======================================*/
+.theme-toggle {
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    opacity: 0.8;
+}
+/*======================================*/
+
+/* Темная тема */
+.dark-theme {
+    background-color: #000;
+    color: #ffff00;
+}
+
+.dark-theme h1, .dark-theme h2, .dark-theme h3 {
+    color: #ffff00;
+}
+
+.dark-theme nav ul li a {
+    color: #ffff00;
+}
+
+.dark-theme p {
+    color: #ffff00;
+}
+
+.dark-theme nav ul li a:hover {
+    color: #ccc;
+}
+
+.dark-theme main, .dark-theme footer {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Изменение цвета иконки в тёмной теме */
+.dark-theme .theme-toggle {
+    filter: invert(100%) hue-rotate(60deg); /* Делает иконку желтой */
+}
+/*====================================*/
+
+
+/* Позиционка текста и фотографии */
+.text-with-image {
+    display: flex;           /* Включаем flex-разметку */
+    align-items: flex-start; /* Выравниваем по верхнему краю */
+    gap: 25px;              /* Расстояние между блоком фото и текстом */
+    margin: 0 auto;         /* Центрирование контейнера */
+    padding: 20px;          /* Внутренние отступы */
+}
+
+/* Стили для текста */
+.text-content {
+    flex: 1;                /* Текст занимает всё доступное пространство */
+    order: 0;               /* Базовый порядок для текста */
+}
+
+/* Базовые стили для фотографий */
+.photo {
+    width: 250px;           /* Размер фотографии */
+    height: 250px;
+    border-radius: 35%;     /* Круглая форма (уберите для прямоугольной) */
+    object-fit: cover;      /* Правильное отображение фото */
+    flex-shrink: 0;         /* Запрещаем уменьшение фото */
+}
+
+/* Фотографии в столбец */
+.column {
+    margin: auto;
+    display: flex;          /* Flex для контейнера фотографий */
+    flex-direction: column; /* Фотографии выстраиваются в столбец */
+    gap: 25px;             /* Расстояние между фотографиями */
+}
+
+/* Адаптивность для маленьких экранов */
+@media (max-width: 768px) {
+    .text-with-image {
+        flex-direction: column; /* Всё в столбец на маленьких экранах */
+    }
+    .photo {
+        width: 100%;        /* Фото подстраиваются под ширину */
+        max-width: 250px;   /* Ограничение размера */
+        order: 0;           /* Порядок сбрасывается, всё идет последовательно */
+    }
+}
+/*====================================*/
+
+
+
+/* Анимационные стили */
+/*=====================================*/
+.scroll-animation {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-animation.animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Обратная анимация для текста: при скролле вверх текст уходит вниз и исчезает */
+.scroll-animation-reverse {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-animation-reverse.animated-reverse {
+    opacity: 0;
+    transform: translateY(50px);
+}
+/*====================================*/
+
